@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TasteTrail - Food & Recipes</title>
+    <link rel="stylesheet" href="foodtrail.css">
+</head>
+
+<body>
+
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            Taste<span>Trail</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><button onclick="showPage('home')">Home</button></li>
+            <li><button onclick="showPage('recipes')">Recipes</button></li>
+            <li><button onclick="showPage('categories')">Categories</button></li>
+            <li><button onclick="showPage('favorites')">Favorites ❤️</button></li>
+            <li><button onclick="showPage('about')">About</button></li>
+            <li><button onclick="showPage('contact')">Contact</button></li>
+        </ul>
+
+        <button class="dark-btn" onclick="toggleDarkMode()">🌙</button>
+
+    </nav>
+</header>
+
+
+
+
+<main id="home" class="page active">
+
+    <section class="home-hero">
+
+        <div class="hero-text">
+
+            <p class="small-title">WELCOME TO TASTETRAIL</p>
+
+            <h1>
+                Simple food.<br>
+                Big flavors.
+            </h1>
+
+            <p>
+                Discover delicious recipes from around
+                the world and find something wonderful
+                to cook today.
+            </p>
+
+            <button
+                class="orange-btn"
+                onclick="showPage('recipes')">
+
+                Explore Recipes →
+
+            </button>
+
+        </div>
+
+        <div class="hero-photo">
+            <img
+                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80"
+                alt="Pizza">
+        </div>
+
+    </section>
+
+
+    <section class="home-section">
+
+        <p class="small-title">FEATURED TODAY</p>
+
+        <h2>What are you craving?</h2>
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+                <span>🍜</span>
+                <h3>Asian</h3>
+                <p>Explore flavorful Asian dishes.</p>
+            </div>
+
+            <div class="mini-card">
+                <span>🍝</span>
+                <h3>Italian</h3>
+                <p>Comforting pasta and pizza.</p>
+            </div>
+
+            <div class="mini-card">
+                <span>🍰</span>
+                <h3>Desserts</h3>
+                <p>Something sweet for everyone.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<main id="recipes" class="page">
+
+    <section class="page-header">
+
+        <p class="small-title">TASTETRAIL RECIPES</p>
+
+        <h1>Recipes You'll Love</h1>
+
+        <p>
+            Delicious ideas for every mood and occasion.
+        </p>
+
+    </section>
+
+
+    <section class="recipe-section">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search recipes..."
+                onkeyup="searchRecipes()">
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button onclick="filterRecipes('all')">All</button>
+
+            <button onclick="filterRecipes('asian')">Asian</button>
+
+            <button onclick="filterRecipes('quick')">Quick</button>
+
+            <button onclick="filterRecipes('dessert')">Dessert</button>
+
+            <button onclick="filterRecipes('vegetarian')">
+                Vegetarian
+            </button>
+
+        </div>
+
+
+        <div class="recipe-grid">
+
+
+            <div class="recipe-card"
+                 data-category="asian quick"
+                 data-name="biryani">
+
+                <img
+                    src="https://www.licious.in/blog/wp-content/uploads/2022/06/chicken-hyderabadi-biryani-01.jpg">
+
+                <div class="recipe-info">
+
+                    <small>ASIAN • DINNER</small>
+
+                    <h2>Chicken Biryani</h2>
+
+                    <p>
+                        Fragrant rice, tender chicken and
+                        aromatic spices.
+                    </p>
+
+                    <span>⏱ 45 minutes</span>
+
+                    <button onclick="addFavorite('Chicken Biryani')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card"
+                 data-category="asian quick"
+                 data-name="ramen">
+
+                <img
+                    src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80">
+
+                <div class="recipe-info">
+
+                    <small>ASIAN • QUICK</small>
+
+                    <h2>Spicy Ramen</h2>
+
+                    <p>
+                        Warm noodles in a rich and spicy broth.
+                    </p>
+
+                    <span>⏱ 20 minutes</span>
+
+                    <button onclick="addFavorite('Spicy Ramen')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card"
+                 data-category="quick vegetarian"
+                 data-name="pasta">
+
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80">
+
+                <div class="recipe-info">
+
+                    <small>QUICK • VEGETARIAN</small>
+
+                    <h2>Creamy Pasta</h2>
+
+                    <p>
+                        Creamy garlic pasta for a comforting meal.
+                    </p>
+
+                    <span>⏱ 25 minutes</span>
+
+                    <button onclick="addFavorite('Creamy Pasta')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card"
+                 data-category="quick"
+                 data-name="tacos">
+
+                <img
+                    src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=800&q=80">
+
+                <div class="recipe-info">
+
+                    <small>MEXICAN • QUICK</small>
+
+                    <h2>Chicken Tacos</h2>
+
+                    <p>
+                        Delicious tacos with chicken and fresh toppings.
+                    </p>
+
+                    <span>⏱ 30 minutes</span>
+
+                    <button onclick="addFavorite('Chicken Tacos')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card"
+                 data-category="dessert"
+                 data-name="chocolate cake">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80">
+
+                <div class="recipe-info">
+
+                    <small>DESSERT • SWEET</small>
+
+                    <h2>Chocolate Cake</h2>
+
+                    <p>
+                        Rich, soft and delicious chocolate cake.
+                    </p>
+
+                    <span>⏱ 50 minutes</span>
+
+                    <button onclick="addFavorite('Chocolate Cake')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="recipe-card"
+                 data-category="vegetarian quick"
+                 data-name="vegetable noodles">
+
+                <img
+                    src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80">
+
+                <div class="recipe-info">
+
+                    <small>VEGETARIAN • QUICK</small>
+
+                    <h2>Vegetable Noodles</h2>
+
+                    <p>
+                        Quick stir-fried noodles with fresh vegetables.
+                    </p>
+
+                    <span>⏱ 20 minutes</span>
+
+                    <button onclick="addFavorite('Vegetable Noodles')">
+                        ❤️ Add Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<main id="categories" class="page">
+
+    <section class="page-header">
+
+        <p class="small-title">EXPLORE</p>
+
+        <h1>Food Categories</h1>
+
+        <p>
+            Find your favorite type of food.
+        </p>
+
+    </section>
+
+
+    <section class="category-page">
+
+        <div class="big-category" onclick="goToCategory('asian')">
+            <span>🍜</span>
+            <h2>Asian Cuisine</h2>
+            <p>Ramen, biryani, noodles and more.</p>
+        </div>
+
+        <div class="big-category" onclick="goToCategory('quick')">
+            <span>⚡</span>
+            <h2>Quick & Easy</h2>
+            <p>Delicious meals when you're short on time.</p>
+        </div>
+
+        <div class="big-category" onclick="goToCategory('vegetarian')">
+            <span>🥗</span>
+            <h2>Vegetarian</h2>
+            <p>Fresh and flavorful vegetarian dishes.</p>
+        </div>
+
+        <div class="big-category" onclick="goToCategory('dessert')">
+            <span>🍰</span>
+            <h2>Desserts</h2>
+            <p>Sweet treats for every occasion.</p>
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<main id="favorites" class="page">
+
+    <section class="page-header">
+
+        <p class="small-title">YOUR COLLECTION</p>
+
+        <h1>❤️ My Favorite Recipes</h1>
+
+        <p>
+            Your saved recipes will appear here.
+        </p>
+
+    </section>
+
+    <section class="favorites-section">
+
+        <div id="favoriteList">
+
+            <p class="empty">
+                You haven't added any recipes yet.
+                <br><br>
+                Go to Recipes and click ❤️ Add Favorite.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<main id="about" class="page">
+
+    <section class="about-page">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1592417817038-d13fd7342605?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8">
+
+        </div>
+
+        <div class="about-text">
+
+            <p class="small-title">ABOUT TASTETRAIL</p>
+
+            <h1>Food brings people together.</h1>
+
+            <p>
+                TasteTrail is a student-created food discovery
+                website designed to make exploring recipes
+                simple, enjoyable and interactive.
+            </p>
+
+            <p>
+                From comforting homemade meals to dishes from
+                different cultures, TasteTrail helps you discover
+                something delicious to try.
+            </p>
+
+            <p>
+                Our goal is simple:
+                <strong>Explore. Cook. Taste.</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<main id="contact" class="page">
+
+    <section class="page-header">
+
+        <p class="small-title">GET IN TOUCH</p>
+
+        <h1>Contact TasteTrail</h1>
+
+        <p>
+            Have a recipe suggestion? We'd love to hear from you.
+        </p>
+
+    </section>
+
+
+    <section class="contact-section">
+
+        <form id="contactForm">
+
+            <label>Your Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name">
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email">
+
+
+            <label>Your Message</label>
+
+            <textarea
+                id="message"
+                placeholder="Write your message..."></textarea>
+
+
+            <button type="submit" class="orange-btn">
+                Send Message
+            </button>
+
+            <p id="formMessage"></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+
+
+<footer>
+
+    <h2>Taste<span>Trail</span></h2>
+
+    <p>
+        Explore • Cook • Taste • Enjoy
+    </p>
+
+    <p class="copyright">
+        © 2026 TasteTrail | Computer Course Project
+    </p>
+
+</footer>
+
+
+<script src="foodtrail.js"></script>
+
+</body>
+</html>
